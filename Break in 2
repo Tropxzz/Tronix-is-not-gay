@@ -1,0 +1,232 @@
+-- i was gonna do custom UI but fuck it
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Tronix - Break in 2",
+	LoadingTitle = "Tronix - break in 2",
+	LoadingSubtitle = "Ur a gay fag",
+	ConfigurationSaving = { -- cry about it users
+		Enabled = false,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "Big Hub"
+	},
+	Discord = { 
+		Enabled = true,
+		Invite = "https://discord.gg/qB9jnx9sc2", -- bro if u do discord.gg/code there would it set clipboard as discord.gg/discord.gg/code LOL
+		RememberJoins = false -- hehe
+	},
+	KeySystem = false, -- no ugly imagine doing key key systems are for money hungry fags
+	KeySettings = {
+		Title = "Untitled",
+		Subtitle = "Key System",
+		Note = "No method of obtaining the key is provided",
+		FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+	}
+})
+
+-- me thinking on how to do it
+-- me after 2 seconds
+-- AH YES IK IM SO SMART (custom ui looks better tbh :( )
+
+local Lobby = Window:CreateTab("Lobby (roles and shit)", --[[ wait wtf i needa find a game icon id i didnt know :(]] 14867210858 --[[ Bet u it wont work ]]) 
+-- bon fucking jur we meet again (if u red the dialog in game chooser)
+-- so uh letz code 
+-- idgaf if u skid rscripts work :skull:
+-- credits to rscripts for everything but the roles (I DID ROLES DO NOT TAKE CREDIT FOR THEM IM BEGGING IM ON MY FUCKING TOES BRO)
+-- also tip for choosing good ui librarys: do not use orion!
+-- rate my commentary 1-10
+-- yes i am a bored man	
+
+local LocalPlayer = game.Players.LocalPlayer
+local Events = game:GetService("ReplicatedStorage"):WaitForChild("Events")
+
+
+Lobby:CreateButton({
+	Name = "Hacker Role",
+	Callback = function()
+		local function GetRole --[[ Coz why not hehe ]]  (Role) -- Book or Phone
+		local A_1 = Role
+		if game:GetService("ReplicatedStorage").RemoteEvents:FindFirstChild("OutsideRole") ~= nil  then
+			local Event = game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("OutsideRole")
+			Event:FireServer(A_1)
+		end
+	end
+	GetRole("Phone")
+	-- ez peasy lemmon squeezy 🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋
+	end,
+	})
+ -- im just using the code for my shit ui i made  then i use rscripts stuff	
+	Lobby:CreateButton({
+	Name = "Nerd Role",
+	Callback = function()
+		local function GetRole --[[ Coz why not hehe ]]  (Role) -- Book or Phone
+		local A_1 = Role
+		if game:GetService("ReplicatedStorage").RemoteEvents:FindFirstChild("OutsideRole") ~= nil  then
+			local Event = game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("OutsideRole")
+			Event:FireServer(A_1)
+		end
+	end
+	GetRole("Book")
+	-- ez peasy lemmon squeezy 🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋
+	end,
+	})
+	
+	-- test run status: it works woooooooo 🥳🎂🍾
+
+-- now ingame stuff 
+-- "i need to find the game id first" - Roblox's AI
+-- " "i need to find the game id first" - Roblox's AI" - Roblox's AI
+-- also the image works which is a W
+local InGame = Window:CreateTab("Ingame", --[[ wait wtf i needa find a game icon id i didnt know :(]] 14867210858 --[[ Bet u it wont work ]])
+local M = InGame:CreateSection("Main")
+
+function TeleportTo(c) -- [[ I made it Rscripts didnt ]]
+	LocalPlayer.Character.HumanoidRootPart.CFrame = c
+end
+
+Button = InGame:CreateButton({
+	Name = "Get All NPCS",
+	Callback = function()
+		local function GiveItem(Item)
+			if Item == "Armor" then
+				Events:WaitForChild("Vending"):FireServer(3, "Armor2", "Armor", tostring(LocalPlayer), 1)
+			else
+				Events:WaitForChild("GiveTool"):FireServer(tostring(Item:gsub(" ", "")))
+			end
+		end
+		
+		local function GetDog()
+			for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Assets.Note.Note.Note:GetChildren()) do
+				if v.Name:match("Circle") and v.Visible == true then
+					GiveItem(tostring(v.Name:gsub("Circle", "")))
+					task.wait(.1)
+					LocalPlayer.Backpack:WaitForChild(tostring(v.Name:gsub("Circle", ""))).Parent = LocalPlayer.Character
+					TeleportTo(CFrame.new(-257.56839, 29.4499969, -910.452637, -0.238445505, 7.71292363e-09, 0.971155882, 1.2913591e-10, 1, -7.91029819e-09, -0.971155882, -1.76076387e-09, -0.238445505))
+					task.wait(.5)
+					Events:WaitForChild("CatFed"):FireServer(tostring(v.Name:gsub("Circle", "")))
+				end
+			end
+			task.wait(2)
+			for i = 1, 3 do
+				TeleportTo(CFrame.new(-203.533081, 30.4500484, -790.901428, -0.0148558766, 8.85941187e-09, -0.999889672, 2.65695732e-08, 1, 8.46563175e-09, 0.999889672, -2.64408779e-08, -0.0148558766) + Vector3.new(0, 5, 0))
+				task.wait(.1)
+			end
+		end
+
+		local function GetAgent()
+			GiveItem("Louise")
+			task.wait(.1)
+			LocalPlayer.Backpack:WaitForChild("Louise").Parent = LocalPlayer.Character
+			Events:WaitForChild("LouiseGive"):FireServer(2)
+		end
+
+		local function GetUncle()
+			GiveItem("Key")
+			task.wait(.1)
+			LocalPlayer.Backpack:WaitForChild("Key").Parent = LocalPlayer.Character
+			wait(.5)
+			Events.KeyEvent:FireServer()
+		end
+		
+		GetUncle()
+		task.wait(3)
+		GetDog()
+		task.wait(3)
+		GetAgent()
+	end,
+})
+
+-- Button 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 
+-- Playtest: 3:39pm 26/9/23 AEST
+
+-- gay asf niggs reported my alternate acc :( 
+
+local I = InGame:CreateSection("Items")
+Button = InGame:CreateButton({
+	Name = "Get Gold apple",
+	Callback = function()
+		local function GiveItem(Item)
+			if Item == "Armor" then
+				Events:WaitForChild("Vending"):FireServer(3, "Armor2", "Armor", tostring(LocalPlayer), 1)
+			else
+				Events:WaitForChild("GiveTool"):FireServer(tostring(Item:gsub(" ", "")))
+			end
+		end
+
+	GiveItem("Golden Apple") -- rizz bros
+	end,
+})
+
+Button = InGame:CreateButton({
+	Name = "Get Armor",
+	Callback = function()
+		local function GiveItem(Item)
+			if Item == "Armor" then
+				Events:WaitForChild("Vending"):FireServer(3, "Armor2", "Armor", tostring(LocalPlayer), 1)
+			else
+				Events:WaitForChild("GiveTool"):FireServer(tostring(Item:gsub(" ", "")))
+			end
+		end
+
+		GiveItem("Armor") -- rizz bros
+	end,
+})
+
+local M = InGame:CreateSection("Tronix's Gym")
+
+Button = InGame:CreateButton({
+	Name = "Speed = max",
+	Callback = function()
+		local function Train(Ability)
+			Events:WaitForChild("RainbowWhatStat"):FireServer(Ability)
+		end
+		local a = 0
+		while wait(1) do
+			a = a + 1
+			if a ~= 5 then
+				Train("Speed")
+			end
+		end
+	end,
+})
+
+Button = InGame:CreateButton({
+	Name = "Strength = max",
+	Callback = function()
+		local function Train(Ability)
+			Events:WaitForChild("RainbowWhatStat"):FireServer(Ability)
+		end
+		local a = 0
+		while wait(1) do
+			a = a + 1
+			if a ~= 5 then
+				Train("Strength")
+			end
+		end
+	end,
+})
+
+Button = InGame:CreateButton({
+	Name = "1+ speed",
+	Callback = function()
+		local function Train(Ability)
+			Events:WaitForChild("RainbowWhatStat"):FireServer(Ability)
+		end
+		Train("Speed")
+	end,
+})
+
+Button = InGame:CreateButton({
+	Name = "1+ Strength",
+	Callback = function()
+		local function Train(Ability)
+			Events:WaitForChild("RainbowWhatStat"):FireServer(Ability)
+		end
+		Train("Strength")
+	end,
+})
+
+-- it works and its :fire:
