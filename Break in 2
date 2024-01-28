@@ -83,7 +83,7 @@ Lobby:CreateButton({
 local InGame = Window:CreateTab("Ingame", --[[ wait wtf i needa find a game icon id i didnt know :(]] 14867210858 --[[ Bet u it wont work ]])
 local M = InGame:CreateSection("Main")
 
-function TeleportTo(c) -- [[ I made it Rscripts didnt ]]
+function TeleportTo(c)
 	LocalPlayer.Character.HumanoidRootPart.CFrame = c
 end
 
@@ -142,7 +142,7 @@ Button = InGame:CreateButton({
 -- Button 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 
 -- Playtest: 3:39pm 26/9/23 AEST
 
--- gay asf niggs reported my alternate acc :( 
+-- people reported me :sob:
 
 local I = InGame:CreateSection("Items")
 Button = InGame:CreateButton({
